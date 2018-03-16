@@ -1,0 +1,145 @@
+/**
+ * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ */
+package com.dsunsoft.modules.basic.entity;
+
+import java.math.BigDecimal;
+
+import javax.validation.constraints.NotNull;
+
+import com.jeeplus.common.utils.excel.annotation.ExcelField;
+import com.jeeplus.core.persistence.DataEntity;
+import com.jeeplus.modules.sys.entity.User;
+
+/**
+ * 任务信息Entity
+ * @author gjx
+ * @version 2018-03-01
+ */
+public class EmpTask extends DataEntity<EmpTask> {
+	
+	private static final long serialVersionUID = 1L;
+	private Project project;		// 项目id
+	private User user;		// 指派给
+	private String taskName;		// 任务名称
+	private String taskContent;		// 设计思路
+	private String taskQuestion;		// 遇见问题
+	private String completeQuestion;		// 修改建议
+	private String status;		// 状态
+	private String statusName;		// 状态
+	private BigDecimal totalHour;		// 状态
+	
+	public EmpTask() {
+		super();
+		this.setIdType(IDTYPE_AUTO);
+	}
+
+	public EmpTask(String id){
+		super(id);
+	}
+
+	@NotNull(message="项目id不能为空")
+	@ExcelField(title="项目id", fieldType=Project.class, value="project.name", align=2, sort=1)
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+	
+	@NotNull(message="指派给不能为空")
+	@ExcelField(title="指派给", fieldType=User.class, value="user.name", align=2, sort=2)
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	@ExcelField(title="任务名称", align=2, sort=3)
+	public String getTaskName() {
+		return taskName;
+	}
+
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
+	
+	@ExcelField(title="设计思路", align=2, sort=4)
+	public String getTaskContent() {
+		return taskContent;
+	}
+
+	public void setTaskContent(String taskContent) {
+		this.taskContent = taskContent;
+	}
+	
+	@ExcelField(title="遇见问题", align=2, sort=5)
+	public String getTaskQuestion() {
+		return taskQuestion;
+	}
+
+	public void setTaskQuestion(String taskQuestion) {
+		this.taskQuestion = taskQuestion;
+	}
+	
+	@ExcelField(title="修改建议", align=2, sort=6)
+	public String getCompleteQuestion() {
+		return completeQuestion;
+	}
+
+	public void setCompleteQuestion(String completeQuestion) {
+		this.completeQuestion = completeQuestion;
+	}
+
+	/**  
+	 * 获取status  
+	 * @return status status  
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**  
+	 * 设置status  
+	 * @param status status  
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**  
+	 * 获取statusName  
+	 * @return statusName statusName  
+	 */
+	public String getStatusName() {
+		return statusName;
+	}
+
+	/**  
+	 * 设置statusName  
+	 * @param statusName statusName  
+	 */
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+
+	/**  
+	 * 获取totalHour  
+	 * @return totalHour totalHour  
+	 */
+	public BigDecimal getTotalHour() {
+		return totalHour;
+	}
+
+	/**  
+	 * 设置totalHour  
+	 * @param totalHour totalHour  
+	 */
+	public void setTotalHour(BigDecimal totalHour) {
+		this.totalHour = totalHour;
+	}
+	
+}
